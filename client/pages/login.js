@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { auth } from '../firebase';
 import LoginRegisterForm from '../components/LoginRegisterForm';
 
@@ -29,10 +29,16 @@ export default function Login() {
     }
   };
 
+  const googleLogin = async () => {
+    const provider = new GoogleAuthProvider();
+    await signInWithPopup(auth, provider)
+  }
+
   return (
     <div>
       <h2>Login page</h2>
       <LoginRegisterForm email={email} setEmail={setEmail} pass={pass} setPass={setPass} handleSubmit={login} value={'Login'} />
+      <button onClick={googleLogin}>Log in with Google</button>
       <hr />
       <LoginRegisterForm email={email} setEmail={setEmail} pass={pass} setPass={setPass} handleSubmit={register} value={'Register'} />
     </div>
