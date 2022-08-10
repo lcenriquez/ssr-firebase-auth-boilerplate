@@ -1,9 +1,12 @@
+import FirebaseAuthState from '../components/FirebaseAuthState';
 import { Provider } from '../context';
 
 function MyApp({ Component, pageProps }) {
   return (
     <Provider>
-      <Component {...pageProps} />
+      <FirebaseAuthState>
+        <Component {...pageProps} />
+      </FirebaseAuthState>
     </Provider>
   );
 }
