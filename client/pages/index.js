@@ -13,7 +13,7 @@ export default function Home() {
       </Head>
 
       <h2>Home page</h2>
-      {JSON.stringify(state)}
+      <pre>{JSON.stringify(state, null, 2)}</pre>
     </div>
   );
 }
