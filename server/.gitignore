@@ -13,6 +13,9 @@ package-lock.json
 /.next/
 /out/
 
+#firebase
+serviceAccountKey.json
+
 # production
 /build
 
